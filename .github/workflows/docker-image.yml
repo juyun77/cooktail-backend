@@ -31,8 +31,9 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          echo chmod u+x gradlew
-          echo ./gradlew build
+          chmod u+x gradlew
+          ./gradlew build
+      
 
       - name: Build, tag, and push image to Amazon ECR
         id: image-info
