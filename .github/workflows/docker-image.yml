@@ -30,7 +30,9 @@ jobs:
           echo "::set-output name=version::$VERSION"
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: |
+          echo chmod u+x gradlew
+          echo ./gradlew build
 
       - name: Build, tag, and push image to Amazon ECR
         id: image-info
