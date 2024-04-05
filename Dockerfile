@@ -1,4 +1,3 @@
-# 기본 이미지 설정
 FROM openjdk:17 as builder
 
 # 환경 변수 설정: 언어와 시간대
@@ -7,6 +6,9 @@ ENV TZ=Asia/Seoul
 
 # 시간대 설정
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# 필요한 패키지 설치
+RUN apt-get update && apt-get install -y findutils
 
 # 작업 디렉터리 설정
 WORKDIR /app
