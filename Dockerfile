@@ -47,7 +47,12 @@ ENV LC_ALL=C.UTF-8
 ENV TZ=Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-WORKDIR app
 
-COPY ./build/libs/backend-0.0.1-SNAPSHOT.jar .
-CMD java -jar backend-0.0.1-SNAPSHOT.jar
+WORKDIR /app
+COPY build/libs/*.jar app.jar
+CMD ["java", "-jar", "app.jar"]
+
+#WORKDIR app
+#
+#COPY ./build/libs/backend-0.0.1-SNAPSHOT.jar .
+#CMD java -jar backend-0.0.1-SNAPSHOT.jar
